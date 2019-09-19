@@ -278,7 +278,6 @@ div {
   width: 100px;
   height: 100px;
   background: yellow;
-  position
 }
 
 .octagon {
@@ -412,5 +411,60 @@ div {
   position: relative;
   box-sizing: content-box;
   border: 15px solid red;
-
 }
+
+
+.heart-beat {
+  --size: 200px;
+  --color: red;
+  transform: rotate(45deg);
+  animation: beat 1s infinite alternate ease-in-out;
+}
+
+@keyframes beat {
+  to {
+    transform: rotate(45deg) scale(1.05)
+  }
+}
+
+.heart-beat,
+.heart-beat::before,
+.heart-beat::after {
+  width: var(--size);
+  height: var(--size);
+  background: var(--color);
+}
+
+.heart-beat::before,
+.heart-beat::after {
+  content: '';
+  display: block;
+  margin-top: calc(var(--size) * -0.5);
+  border-radius: 50%;
+}
+
+
+.heart-beat::after {
+  margin-left: calc(var(--size) * -0.5);
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
