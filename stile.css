@@ -449,22 +449,14 @@ div {
 }
 
 
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
+.big-ying-yang {
+  width: 600px;
+  height: 600px;
+  border-radius: 50%;
+  box-shadow: 0 0 0 2px;
+  background: radial-gradient(closest-side circle at 50% 25%, black 15%, transparent 15%),
+  radial-gradient(closest-side circle at 50% 75%, white 15%, transparent 15%),
+  radial-gradient(closest-side circle at 50% 25%, white 100%, transparent 100%),
+  radial-gradient(closest-side circle at 50% 75%, black 100%, transparent 100%),
+  linear-gradient(to right, white 50%, black 50%);
+}
