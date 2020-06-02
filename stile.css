@@ -278,6 +278,7 @@ div {
   width: 100px;
   height: 100px;
   background: yellow;
+  position
 }
 
 .octagon {
@@ -337,6 +338,41 @@ div {
   transform: rotate(45deg);
   transform-origin: 100% 100%;
 }
+
+.heart-beat {
+  --size: 100px;
+  --color: red;
+  transform: rotate(45deg);
+  animation: beat 1s infinite alternate ease-in-out;
+}
+
+@keyframes beat {
+  to {
+    transform: rotate(45deg) scale(1.05)
+  }
+}
+
+.heart-beat,
+.heart-beat::before,
+.heart-beat::after {
+  width: var(--size);
+  height: var(--size);
+  background: var(--color);
+}
+
+.heart-beat::before,
+.heart-beat::after {
+  content: '';
+  display: block;
+  margin-top: calc(var(--size) * -0.5);
+  border-radius: 50%;
+}
+
+
+.heart-beat::after {
+  margin-left: calc(var(--size) * -0.5);
+}
+
 
 .infinity {
   position: relative;
@@ -404,54 +440,138 @@ div {
 }
 
 .facebook-icon {
-  width: 200px;
-  height: 200px;
+  width: 100px;
+  height: 110px;
   border-radius: 5px;
-  background: red;
+  background: blue;
+  text-indent: -999em;
   position: relative;
   box-sizing: content-box;
-  border: 15px solid red;
+  border: 15px solid blue;
+  border-bottom: 0;
+  overflow: hidden;
 }
 
+.facebook-icon:before {
+  content: "/20";
+  position: absolute;
+  backgroud: blue;
+  width: 40px;
+  height: 90px;
+  bottom: -30px;
+  right: -37px;
+  border: 20px solid #eee;
+  border-radius: 25px;
+  box-sizing: content-box;
+}
 
-.heart-beat {
-  --size: 200px;
-  --color: red;
+.facebook-icon:after {
+  content: "/20";
+  position: absolute;
+  width: 55px;
+  height: 20px;
+  top: 50px;
+  right: 5px;
+  background: #eee;
+  box-sizing: content-box;
+}
+
+.cross {
+  width: 20px;
+  height: 100px;
+  background: red;
+  position: relative;
+}
+
+.cross:after {
+  width: 100px;
+  height: 20px;
+  background: red;
+  position: absolute;
+  content: "";
+  top: 40px;
+  left: -40px;
+}
+
+.x {
+  width: 20px;
+  height: 100px;
+  background: red;
+  position: relative;
   transform: rotate(45deg);
-  animation: beat 1s infinite alternate ease-in-out;
 }
 
-@keyframes beat {
-  to {
-    transform: rotate(45deg) scale(1.05)
-  }
+.x:after {
+  width: 100px;
+  height: 20px;
+  background: red;
+  position: absolute;
+  content: "";
+  top: 40px;
+  left: -40px;
 }
 
-.heart-beat,
-.heart-beat::before,
-.heart-beat::after {
-  width: var(--size);
-  height: var(--size);
-  background: var(--color);
+.lock {
+  font-size: 8px;
+  position: relative;
+  width: 18em;
+  height: 13em;
+  border-radius: 2em;
+  top: 10em;
+  box-sizing: border-box;
+  border: 3.5em solid red;
+  border-right-width: 7.5em;
+  border-left-width: 7.5em;
+  margin: 0 0 6rem 0;
 }
 
-.heart-beat::before,
-.heart-beat::after {
-  content: '';
-  display: block;
-  margin-top: calc(var(--size) * -0.5);
-  border-radius: 50%;
+.lock:hover {
+  border-color: green;
 }
 
-
-.heart-beat::after {
-  margin-left: calc(var(--size) * -0.5);
+.lock:before {
+  content: "";
+  box-sizing: border-box;
+  position: absolute;
+  border-left: 2.5em solid red;
+  border-top: 2.5em solid red;
+  border-right: 2.5em solid red;
+  width: 14em;
+  height: 8.5em;
+  left: 50%;
+  margin-left: -7em;
+  top: -12em;
+  border-top-left-radius: 7em;
+  border-top-right-radius: 7em;
 }
 
+.lock:hover:before {
+  position: absolute;
+  border-color: green;
+  border-right-color: transparent;
+/*   transition: border-right-color .5s; */
+}
+
+.lock:after {
+  content: "";
+  box-sizing: border-box;
+  position: absolute;
+  border: 1em solid red;
+  width: 5em;
+  height: 8em;
+  border-radius: 2.5em;
+  left: 50%;
+  top: -1em;
+  margin-left: -2.5em;
+}
+
+.lock:hover:after {
+  border-color: green;
+}
 
 .big-ying-yang {
-  width: 600px;
-  height: 600px;
+  width: 300px;
+  height: 300px;
   border-radius: 50%;
   box-shadow: 0 0 0 2px;
   background: radial-gradient(closest-side circle at 50% 25%, black 15%, transparent 15%),
@@ -460,3 +580,4 @@ div {
   radial-gradient(closest-side circle at 50% 75%, black 100%, transparent 100%),
   linear-gradient(to right, white 50%, black 50%);
 }
+
